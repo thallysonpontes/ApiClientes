@@ -9,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,10 +23,11 @@ public class Pedido {
 	@Column(name = "id") 
     private Integer id;
 	
-	@Column(name = "cliente")
+	@ManyToOne
+	@JoinColumn(name = "cliente_id")
     private Cliente cliente;
 	
-	@Column(name = "data")
+	@Column(name = "data_pedido")
     private LocalDate dataPedido;
 	
 	@Column(name = "total")
