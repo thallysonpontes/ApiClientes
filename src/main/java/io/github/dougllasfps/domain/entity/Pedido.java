@@ -3,6 +3,7 @@ package io.github.dougllasfps.domain.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,6 +33,9 @@ public class Pedido {
 	
 	@Column(name = "total")
     private BigDecimal total; 
+	
+	@OneToMany(mappedBy = "pedido")
+	private List<ItemPedido> itens;
 
     public Integer getId() {
         return id;
