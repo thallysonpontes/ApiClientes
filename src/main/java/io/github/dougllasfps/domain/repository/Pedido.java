@@ -1,9 +1,0 @@
-package io.github.dougllasfps.domain.repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
-@Repository
-public interface Pedido extends JpaRepository<Pedido, Integer>{
-	
-}

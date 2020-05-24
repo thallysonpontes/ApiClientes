@@ -1,0 +1,46 @@
+package io.github.dougllasfps.domain.service.impl;
+
+import java.time.LocalDate;
+
+import org.springframework.stereotype.Service;
+
+import io.github.dougllasfps.domain.entity.Cliente;
+import io.github.dougllasfps.domain.entity.Pedido;
+import io.github.dougllasfps.domain.repository.Clientes;
+import io.github.dougllasfps.domain.repository.Pedidos;
+import io.github.dougllasfps.domain.repository.Produtos;
+import io.github.dougllasfps.domain.service.PedidoService;
+import io.github.dougllasfps.exception.RegraNegocioException;
+import io.github.dougllasfps.rest.dto.ItemPedidoDTO;
+import io.github.dougllasfps.rest.dto.PedidoDTO;
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class PedidoServiceImpl implements PedidoService{
+	
+	private Pedidos pedidos;
+	private Clientes clienterepository;
+	private Produtos produtorepository;
+
+
+	@Override
+	public Pedido salvar(PedidoDTO dto) {
+		Integer idCliente = dto.getCliente();
+	    Cliente cliente = clienterepository.findById(idCliente)
+	    		.orElseThrow(() ->
+	    				new RegraNegocioException
+	    								("Codigo de Cliente Invalido."));
+		Pedido pedido = new Pedido();
+		
+		pedido.setTotal(dto.getTotal());
+		pedido.setDataPedido(LocalDate.now());
+		pedido.setCliente(cliente);
+		
+		return null;
+	}
+	
+	private void salvarItems(java.util.List<E> items) {
+		
+	}
+}

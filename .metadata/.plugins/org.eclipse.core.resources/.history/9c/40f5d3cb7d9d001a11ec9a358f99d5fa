@@ -1,0 +1,37 @@
+package io.github.dougllasfps.domain.service.impl;
+
+import java.time.LocalDate;
+
+import org.springframework.stereotype.Service;
+
+import io.github.dougllasfps.domain.entity.Pedido;
+import io.github.dougllasfps.domain.repository.Clientes;
+import io.github.dougllasfps.domain.repository.Pedidos;
+import io.github.dougllasfps.domain.repository.Produtos;
+import io.github.dougllasfps.domain.service.PedidoService;
+import io.github.dougllasfps.rest.dto.PedidoDTO;
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class PedidoServiceImpl implements PedidoService{
+	
+	private Pedidos pedidos;
+	private Clientes clienterepository;
+	private Produtos produtorepository;
+
+
+	@Override
+	public Pedido salvar(PedidoDTO dto) {
+		
+		Pedido pedido = new Pedido();
+		
+		pedido.setTotal();
+		pedido.setDataPedido(LocalDate.now());
+		pedido.getCliente()
+		
+		pedido
+		return null;
+	}
+	
+}

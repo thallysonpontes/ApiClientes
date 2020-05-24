@@ -1,0 +1,5 @@
+package io.github.dougllasfps.exception;
+
+public class RegraNegocioException {
+
+}
